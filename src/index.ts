@@ -139,8 +139,8 @@ async function run(): Promise<void> {
 
     if (branchCheck !== null) {
       debug('success', 'Branch name contains a reference to a ticket, updating title');
-      
-      const ticketNumber = branchCheck.groups?.ticketNumber;
+
+      const ticketNumber = branchCheck.groups?.ticketNumber || '';
 
       const id = extractId(branch);
 
