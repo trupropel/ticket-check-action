@@ -141,12 +141,10 @@ async function run(): Promise<void> {
       debug('success', 'Branch name contains a reference to a ticket, updating title');
 
       const ticketNumber = branchCheck.groups?.ticketNumber || '';
-
       const id = extractId(branch);
 
       if (id === null) {
         setFailed('Could not extract a ticket ID reference from the branch');
-
         return;
       }
 
