@@ -142,7 +142,7 @@ async function run(): Promise<void> {
       
       const ticketNumber = branchCheck.groups?.ticketNumber;
 
-      const id = ticketNumber ? ticketNumber : extractId(branch);
+      const id = extractId(branch);
 
       if (id === null) {
         setFailed('Could not extract a ticket ID reference from the branch');
@@ -156,6 +156,7 @@ async function run(): Promise<void> {
         pull_number: number,
         title: titleFormat
           .replace('%prefix%', ticketPrefix)
+          .replace('%ticketNumber%', ticketNumber)
           .replace('%id%', id)
           .replace('%title%', title)
       });
